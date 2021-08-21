@@ -29,6 +29,6 @@ function countdown() {
 
   function showquestions() {
     countdown()
-    question1El.classList.remove('hidden');
+    question1El.classList.remove("hidden");
     
   }
