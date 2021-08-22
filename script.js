@@ -1,7 +1,4 @@
 var timerEl = document.getElementById('countdown');
-var mainEl = document.getElementById('main');
-var buttonEl = document.getElementById('startbtn');
-var question1El = document.getElementById('question1');
 var startBtn = document.getElementById("startBtn");
 var q1El = document.querySelector("#q1");
 var q2El = document.querySelector("#q2");
@@ -22,8 +19,8 @@ var highScore = [];
 var time;
 var timerEL = document.querySelector("#quizTime")
 
-function countdown() {
-  var timeLeft = 20;
+function() {
+  var timeLeft = 30;
   
   var timeInterval = setInterval(function () {
     if (timeLeft > 1) {
