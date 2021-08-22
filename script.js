@@ -1,3 +1,7 @@
+var timerEl = document.getElementById('countdown');
+var mainEl = document.getElementById('main');
+var buttonEl = document.getElementById('startbtn');
+var question1El = document.getElementById('question1');
 var startBtn = document.getElementById("startBtn");
 var q1El = document.querySelector("#q1");
 var q2El = document.querySelector("#q2");
@@ -15,19 +19,21 @@ var interval =
     console.log(localStorage.getItem("score"));
 var quizTimeEl = document.querySelector("#quizTime")
 var highScore = [];
-var countdown = 30;
-var holdInterval = 0;
-var penalty = 5;
 var time;
 var timerEL = document.querySelector("#quizTime")
 
-function renderTime() {
-  timerEL.textContent = countdown
-  countdown--
-  console.log(countdown);
-  if (holdInterval === 0) {
-    console.log("stop timer");
-  }
+function countdown() {
+  var timeLeft = 20;
+  
+  var timeInterval = setInterval(function () {
+    if (timeLeft > 1) {
+      timerEl.textContent = timeLeft + ' seconds remaining';
+      timeLeft--;
+    } else {
+      timerEl.textContent = '';
+      clearInterval(timeInterval);
+    }
+  }, 1000);
 }
 
 highScore.push(localStorage.getItem("score"));
@@ -53,7 +59,7 @@ for (var i = 0; i < a1.length; i++) {
       countdown=countdown-5;
     }
       document.getElementById("score").innerHTML = score;
-    })
+  })
 }
 
 for (var i = 0; i < a2.length; i++) {
@@ -68,7 +74,7 @@ for (var i = 0; i < a2.length; i++) {
     }
     console.log(score);
       document.getElementById("score").innerHTML = score;
-    })
+  })
 }
 
 for (var i = 0; i < a3.length; i++) {
@@ -83,7 +89,7 @@ for (var i = 0; i < a3.length; i++) {
     }
       console.log(score);
       document.getElementById("score").innerHTML = score;
-    })
+  })
 }
 
 for (var i = 0; i < a4.length; i++) {
@@ -98,7 +104,7 @@ for (var i = 0; i < a4.length; i++) {
     }
       console.log(score);
       document.getElementById("score").innerHTML = score;
-    })
+  })
 }
 
 for (var i = 0; i < a5.length; i++) {
@@ -108,9 +114,9 @@ for (var i = 0; i < a5.length; i++) {
     if (event.target.value == "correct") {
       score++;
     }
-    console.log(score);
+      console.log(score);
       document.getElementById("score").innerHTML = score;
-    })
+  })
 }
 
 var saveBtn = document.getElementById("save");
@@ -119,5 +125,5 @@ saveBtn.addEventListener("click", function (event) {
     console.log(initials.value);
     highScores.push(`${initials.value} : ${score}`);
     localStorage.setItem("score", highScore);
-})
-
+  })
+}
