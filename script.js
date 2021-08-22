@@ -18,6 +18,7 @@ var highScore = [];
 var countdown = 30;
 var holdInterval = 0;
 var penalty = 5;
+var time;
 var timerEL = document.querySelector("#quizTime")
 
 function renderTime() {
@@ -33,15 +34,13 @@ highScore.push(localStorage.getItem("score"));
 startButton.addEventListener("click", function () {
   startTimeDiv.classList.add("hidden");
   q1.classList.remove("hidden");
+  time=setInterval(renderTime, 1000);
 })
-
 
 function showquestions() {
   countdown()
   question1El.classList.remove('hidden');
 }
-
-
 
 for (var i = 0; i < a1.length; i++) {
   a1[i].addEventListener('click', function (event) {
