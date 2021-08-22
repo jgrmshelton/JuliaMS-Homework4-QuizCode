@@ -2,72 +2,69 @@
 <html lang="en">
  
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Code Quiz</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header>
-    <h1>Code Quiz</h1>
-    <p>You will be asked several questions about Javascript. Best of luck to you!</p>
-  </header>
+  <header>Code Quiz</header>
+    <p>Once you click Start Quiz you will be given 60 seconds to answer five multiple choice questions correctly. Time will be deducted for every question you answer wrong. Good luck :)</p>
+    <h1 id="score"></h1>
+    <h2 id="quizTime"></h2>
+	  <div class=”startTime”>
+    	<button id="startBtn">Start Quiz</button>
+	  </div>
 
-  <div>
-    <button id="startbtn">Start Quiz</button> 
+    <div id="q1" class=”hidden”> 
+      <p>Question 1 - What is javascript?</p>
+      <button class="a1" value="incorrect">A. A way to do math using code</button><br>
+      <button class="a1" value="incorrect">B. CSS on steroids</button><br>
+      <button class="a1" value="correct">C. A dynamic computer programming language</button><br>
+      <button class="a1" value="incorrect">D. A basic scripting language used by web browsers to render pages on the world wide web</button><br>
+    </div>
+  
+    <div id="q2" class=”hidden”>
+      <p>Question 2 - What does the acronym DOM mean?</p>
+      <button class="a2" value="correct">A. Document Original Model</button><br>
+      <button class="a2" value="incorrect">B. Database Original Model</button><br>
+      <button class="a2" value="incorrect">C. Datasheet Office Manager</button><br>
+      <button class="a2" value="incorrect">D. Deilivery Opperation Mode</button><br>
+    </div>
+  
+    <div id="q3" class=”hidden”>
+      <p>Question 3 - The DOM is built into Javascript.</p>
+      <button class="a3" value="incorrect">True</button><br>
+      <button class="a3" value="correct">False</button><br>
+    </div>
+  
+    <div id="q4" class=”hidden”> 
+      <p>Question 4 - Which of the following will write the message “Here comes the sun... doo doo doo doo...” in an alert box?</p>
+      <button class="a4" value="correct">A. alert(“Here comes the sun... doo doo doo doo...”);</button><br>
+      <button class="a4" value="incorrect">B. box("Here comes the sun... doo doo doo doo...”);</button><br>
+      <button class="a4" value="incorrect">C. alert("Here comes the sun... doo doo doo doo...")</button><br>
+      <button class="a4" value="incorrect">D. messageinabottle(“Here comes the sun... doo doo doo doo...”);</button><br>
+    </div>
+  
+    <div id="q5" class=”hidden”> 
+      <p>Question 5 - var rootEL = $("#root"); is equivalent to var rootEL = document.getElementByID("root");</p>
+      <button class="a5" value="correct">True</button><br>
+      <button class="a5" value="incorrect">False</button><br>
+    </div>  
+
+    <div id="scoreList" class=”hidden”>
+      <h3>FINAL SCORE</h3>
+      <h4 id="final"></h4>
+      <input id="initials" placeholder="Initial Here">
+      <button id="saveBtn">Click to save your score!</button>
+      </input>
   </div>
-  <div class="container">
-    <h2 id="countdown"></h2>
-    <p id="main"></p>
-  </div>
+  
+    <script src="script.js"></script>
+  
+  </body>
+  </html>
+  
 
-  <div id="question1" class="hidden"> 
-    <p>Question 1 - What is javascript?</p>
-    <button class="answer1" value="incorrect">A. A way to do math using code</button><br>
-    <button class="answer1" value="incorrect">B. CSS on steroids</button><br>
-    <button class="answer1" value="correct">C. A dynamic computer programming language</button><br>
-    <button class="answer1" value="incorrect">D. A basic scripting language used by web browsers to render pages on the world wide web</button><br>
-  </div>
-
-  <div id="question2" class="hidden"> 
-    <p>Question 2 - What does the acronym DOM mean?</p>
-    <button class="answer2" value="correct">A. Document Original Model</button><br>
-    <button class="answer2" value="incorrect">B. Database Original Model</button><br>
-    <button class="answer2" value="incorrect">C. Datasheet Office Manager</button><br>
-    <button class="answer2" value="incorrect">D. Deilivery Opperation Mode</button><br>
-  </div>
-
-  <div id="question3" class="hidden"> 
-    <p>Question 3 - The DOM is built into Javascript.</p>
-    <button class="answer3" value="incorrect">True</button><br>
-    <button class="answer3" value="correct">False</button><br>
-
-  </div>
-
-  <div id="question4" class="hidden"> 
-    <p>Question 4 - Which of the following will write the message “Here comes the sun... doo doo doo doo...” in an alert box?</p>
-    <button class="answer4" value="correct">A. alert(“Here comes the sun... doo doo doo doo...”);</button><br>
-    <button class="answer4" value="incorrect">B. box("Here comes the sun... doo doo doo doo...”);</button><br>
-    <button class="answer4" value="incorrect">C. alert("Here comes the sun... doo doo doo doo...")</button><br>
-    <button class="answer4"value="incorrect">D. messageinabottle(“Here comes the sun... doo doo doo doo...”);</button><br>
-  </div>
-
-  <div id="question5" class="hidden"> 
-    <p>Question 5 - var rootEL = $("#root"); is equivalent to var rootEL = document.getElementByID("root");</p>
-    <button class="answer5" value="correct">True</button><br>
-    <button class="answer5"value="incorrect">False</button><br>
-  </div>
-
-  <div id="yourscoreList" class="hidden">
-    <h3>Your Score</h3>
-    <h4 id="yourfinalScore"></h4>
-    <input id="initials" placeholder="Enter Your Initials Here">
-        <button id="savebutton">Click to save your score!</button>
-    </input>
-</div>
-
-  <script src="script.js"></script>
-</body>
-</html>
